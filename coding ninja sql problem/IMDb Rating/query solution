@@ -1,0 +1,15 @@
+Ques-Retrieve the title and rating of movies from the IMDb dataset that were released in 2014, belong to a genre starting with 'C', and had a budget exceeding 4 Crore
+✅ SQL Query Solution:-
+
+SELECT i.Title, i.Rating
+FROM IMDB i
+JOIN genre g ON i.Movie_id = g.Movie_id
+WHERE i.Title LIKE '%(2014)%'
+  AND g.genre LIKE 'C%'
+  AND i.Budget > 40000000;
+
+💡 Explanation:-
+i.Title LIKE '%(2014)%': Filters movies released in 2014 (based on title string since there's no separate year column).
+g.genre LIKE 'C%': Filters genres that start with 'C' (e.g., Comedy, Crime).
+i.Budget > 40000000: Selects movies with budget over 4 Crore.
+We use a JOIN between IMDB and genre tables using Movie_id.
