@@ -1,0 +1,14 @@
+Ques:- Print the title and ratings of the movies released in 2012 whose metacritic rating is more than 60 and Domestic collections exceed 10 Crores.
+✅ SQL Query Solution:-
+SELECT i.Title, i.Rating
+FROM IMDB i
+JOIN earning e ON i.Movie_id = e.Movie_id
+WHERE i.Title LIKE '%(2012)%'
+  AND i.MetaCritic > 60
+  AND e.Domestic > 100000000;
+
+Explanation:-
+Explanation
+i.Title LIKE '%(2012)%' → Filters movies released in 2012 (year is embedded in the title).
+i.MetaCritic > 60 → Filters movies with Metacritic score above 60.
+e.Domestic > 100000000 → Only includes movies with Domestic earnings over 10 Crores (100 million).
