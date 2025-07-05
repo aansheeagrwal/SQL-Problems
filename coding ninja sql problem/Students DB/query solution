@@ -1,0 +1,19 @@
+Ques:- Insert below student details in students table and print all data of table.
+
++---------+--------+-------+
+| ID  |  Name       | Gender|
++---------+--------+-------+
+|   3     |  Kim    |   F   |
+|   4     | Molina  |   F   |
+|   5     | Dev     |   M   |
++---------+--------+-------+
+
+Sql Query Solution:-
+-- Insert the new student records
+INSERT INTO students (id, name, gender) VALUES
+(3, 'Kim', 'F'),
+(4, 'Molina', 'F'),
+(5, 'Dev', 'M');
+
+-- Display all student records
+SELECT * FROM students;
