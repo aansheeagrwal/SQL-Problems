@@ -1,0 +1,44 @@
+Problem statement
+Table: Candidate
+
+ +-----+---------+
+ | id  | Name    |
+ +-----+---------+
+ | 1   | A       |
+ | 2   | B       |
+ | 3   | C       |
+ | 4   | D       |
+ | 5   | E       |
+ +-----+---------+  
+Table: Vote
+
+ +-----+--------------+
+ | id  | CandidateId  |
+ +-----+--------------+
+ | 1   |     2        |
+ | 2   |     4        |
+ | 3   |     3        |
+ | 4   |     2        |
+ | 5   |     5        |
+ +-----+--------------+
+The id column in both tables is an auto-incrementing primary key.
+The CandidateId column in the Vote table refers to the id column in the Candidate table.
+Task:
+Write an SQL query to find the name of the candidate who received the most votes. In the event of the above example, the query should return:
+
+ +------+
+ |  Name |
+ +------+
+ | B    |
+ +------+
+Notes:
+
+You may assume that there is no tie; in other words, there will be exactly one candidate with the most votes.
+
+Query Solution:-
+SELECT c.Name
+FROM Vote v
+JOIN Candidate c ON v.CandidateId = c.id
+GROUP BY c.id, c.Name
+ORDER BY COUNT(*) DESC
+LIMIT 1;
