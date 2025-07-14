@@ -45,4 +45,7 @@ Explanation: Bob and George both have a condition that starts with DIAB1.
 # Write your MySQL query statement below
 Select patient_id,patient_name,conditions 
 From Patients
-Where conditions like '%DIAB1%';
+Where
+     conditions Like 'DIAB1%'
+     OR conditions LIKE '% DIAB1%'  -- In the middle
+     OR conditions LIKE '% DIAB1';  -- At the end
