@@ -1,0 +1,23 @@
+import pandas as pd
+
+# Create the customer table
+df = pd.DataFrame({
+    'customer_id': [1, 4, 5],
+    'customer_name': ['Alice', 'Bob', 'Charlie']
+})
+
+# Step 1: Get max customer ID
+max_id = df['customer_id'].max()
+
+# Step 2: Create full list from 1 to max_id
+all_ids = set(range(1, max_id + 1))
+
+# Step 3: Get actual customer_ids
+present_ids = set(df['customer_id'])
+
+# Step 4: Find missing ones
+missing_ids = sorted(all_ids - present_ids)
+
+# Convert to DataFrame
+missing_df = pd.DataFrame({'ids': missing_ids})
+print(missing_df)
