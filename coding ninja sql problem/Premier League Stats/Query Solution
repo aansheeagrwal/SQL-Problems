@@ -79,8 +79,9 @@ Arsenal (team_id=6) played 2 matches: 2 draws. Total points = 1 + 1 = 2.
 Dortmund is the first team in the table. Ajax and Arsenal have the same points, but since Arsenal has a higher goal_diff than Ajax, Arsenal comes before Ajax in the table.
 
 Query Solution:-
-WITH match_stats AS (
-    SELECT 
+WITH all_matches AS (
+    -- Home team perspective
+    SELECT
         home_team_id AS team_id,
         home_team_goals AS goals_for,
         away_team_goals AS goals_against,
@@ -91,7 +92,8 @@ WITH match_stats AS (
         END AS points
     FROM Matches
     UNION ALL
-    SELECT 
+    -- Away team perspective
+    SELECT
         away_team_id AS team_id,
         away_team_goals AS goals_for,
         home_team_goals AS goals_against,
@@ -108,22 +110,18 @@ team_stats AS (
         COUNT(*) AS matches_played,
         SUM(points) AS points,
         SUM(goals_for) AS goal_for,
-        SUM(goals_against) AS goal_against,
-        MIN(goals_for) AS min_goals_in_a_match,
-        MAX(goals_for) AS max_goals_in_a_match
-    FROM match_stats
+        SUM(goals_against) AS goal_against
+    FROM all_matches
     GROUP BY team_id
 )
-SELECT 
+SELECT
     t.team_name,
     s.matches_played,
     s.points,
     s.goal_for,
     s.goal_against,
-    s.goal_for - s.goal_against AS goal_diff,
-    s.min_goals_in_a_match,
-    s.max_goals_in_a_match
+    (s.goal_for - s.goal_against) AS goal_diff
 FROM Teams t
-JOIN team_stats s
-ON t.team_id = s.team_id
-ORDER BY s.points DESC, goal_diff DESC, t.team_name;
+JOIN team_stats s ON t.team_id = s.team_id
+ORDER BY s.points DESC, goal_diff DESC, t.team_name ASC;
+
