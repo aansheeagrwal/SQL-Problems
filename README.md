@@ -71,10 +71,10 @@ Want to add more problems or solutions?
    <problem-number>-<problem-name>.sql
    ```
 - Submit a Pull Request 🚀
- ---
+ 
 ## 📜 License 
 This repository is licensed under the MIT License.
----
+
 ## 💡 Final Note
 SQL is not just for databases — it’s the language of data.
 Keep solving problems and build the habit of writing clean, efficient queries ✨
