@@ -1,6 +1,7 @@
 # 🚀 SQL-Problems  
 
-![GitHub repo size](https://img.shields.io/github/repo-size/aansheeagrwal/SQL-Problems?color=blueviolet) ![GitHub contributors](https://img.shields.io/github/contributors/aansheeagrwal/SQL-Problems) ![GitHub last commit](https://img.shields.io/github/last-commit/aansheeagrwal/SQL-Problems?color=success) ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![SQL](https://img.shields.io/badge/Language-SQL-blue) ![Joins](https://img.shields.io/badge/Keyword-JOIN-purple) ![Subqueries](https://img.shields.io/badge/Keyword-SUBQUERY-green) ![Aggregates](https://img.shields.io/badge/Keyword-AGGREGATE-orange) ![Window Functions](https://img.shields.io/badge/Keyword-WINDOW%20FUNCTIONS-red) ![Optimization](https://img.shields.io/badge/Focus-QUERY%20OPTIMIZATION-yellow)
+
  
 
 > A collection of **handpicked SQL problems** from platforms like **LeetCode** and **Coding Ninjas**, with structured solutions and references.  
